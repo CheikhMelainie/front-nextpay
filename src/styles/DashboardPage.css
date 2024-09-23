@@ -1,0 +1,188 @@
+.home-container {
+    font-family: Arial, sans-serif;
+    color: #333;
+    left: 0;
+  }
+  
+  .header {
+    background-color: #6A1B9A;
+    padding: 10px;
+    color: white;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu-button {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    transition: transform 0.3s ease;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .navbar-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logout {
+    margin-left: auto;
+  }
+  
+  .logout a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .main-content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .highlight {
+    color: #2979FF;
+  }
+  
+  .wallets-section {
+    margin: 20px 0;
+  }
+  
+  .wallets-slider {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .footer {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer-content p {
+    margin: 5px 0;
+  }
+  
+  .footer-links a {
+    margin: 0 10px;
+    color: #6A1B9A;
+    text-decoration: none;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .menu-button {
+      display: block;
+    }
+  
+    .nav-links {
+      position: absolute;
+      top: 50px; /* Adjusted to align with the menu button */
+      left: 0;
+      width: 50%;
+      background-color: #6A1B9A;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+     
+      transform: translateX(-100%);
+      height: 0;
+      overflow: hidden;
+    }
+  
+    .nav-links.open {
+      transform: translateX(0);
+      height: auto;
+      top: 120%;
+    }
+  
+    .navbar-icons {
+      display: none;
+    }
+  
+    .logout {
+      margin: 10px 0 0 0;
+    }
+  
+    .main-content {
+      padding-top: 60px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header {
+      padding: 5px;
+    }
+  
+    .nav-links {
+      font-size: 14px;
+    }
+  
+    .icon {
+      font-size: 18px;
+    }
+  
+    .main-content {
+      padding: 10px;
+    }
+  
+    .wallets-section h2 {
+      font-size: 18px;
+    }
+  
+    .wallets-slider {
+      gap: 10px;
+    }
+  
+    .footer {
+      padding: 10px;
+    }
+  
+    .footer-content p {
+      font-size: 14px;
+    }
+  
+    .footer-links a {
+      font-size: 14px;
+      margin: 0 5px;
+    }
+  }
+  
