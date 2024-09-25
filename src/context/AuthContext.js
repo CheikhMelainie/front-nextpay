@@ -26,33 +26,29 @@ const AuthProvider = ({ children }) => {
     fetchUser();
   }, []);
 
+
   const login = async (credentials) => {
     try {
-      console.log('Attempting login with credentials:', credentials);
-      const response = await api.post('/user/api/login/', credentials);
-      console.log('Response data:', response.data);
+      const response = await api.post('http://127.0.0.1:8000/user/api/login/', credentials);
+      if (response.status === 200) {
+      
       const { access, user } = response.data;
+        // Enregistrez le token d'accès dans le localStorage
       localStorage.setItem('access', access);
       console.log('Access token stored in localStorage:', access); // Log the access token
       setAuth({ access, user });
-    } catch (error) {
-      console.error('Login failed:', error);
-      if (error.response) {
-        if (error.response.status === 401 && error.response.data.code === 'token_not_valid') {
-          console.error('Token expired or invalid. Please log in again.');
-          localStorage.removeItem('access'); // Remove invalid token
-        } else {
-          console.error('Login failed - Server responded:', error.response.data);
-        }
-      } else if (error.request) {
-        console.error('Login failed - No response received:', error.request);
+
       } else {
-        console.error('Login failed:', error.message);
+        throw new Error('Login failed');
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        throw new Error('Identifiant ou mot de passe incorrect');
+      } else {
+        throw new Error('La connexion a échoué. Veuillez réessayer.');
       }
     }
   };
-
-
 
 
 
